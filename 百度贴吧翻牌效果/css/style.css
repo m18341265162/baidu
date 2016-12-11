@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+/*标题1文字*/
+h1 {
+	color: #fff;
+	padding-top: 100px;
+}
+
+p>a {
+	color: #fff;
+}
+
+/*主内容区*/
+#content {
+	width: 960px;
+	margin: 50px auto 0;
+}
+
+#content ul {
+	width: 980px;	
+}
+
+#content ul li {
+	float: left;
+	margin-right: 20px;
+}
+
+#content ul li a {
+	position: relative;
+	display: block;
+	width: 225px;
+	height: 180px;
+	/*远近度必须加上父容器上*/
+	perspective:700px;
+}
+
+/*正反面统一设置*/
+#content ul li a > div {
+	top:0;
+	left: 0;
+
+	/*背面不可视*/
+	backface-visibility:hidden;
+	/*元素本身3d效果*/
+	transform-style:preserve-3d;
+}
+
+/*正面内容*/
+#content .forward {
+	position: absolute;
+	transition:all 0.8s ease-in-out;
+}
+
+#content a:hover .forward {
+	transform:rotateY(-180deg);
+}
+
+#content .forward .tips {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	background: rgba(0,0,0,0.7);
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+}
+
+#content ul li a img {
+	display: block;
+}
+
+/*背面内容*/
+#content .back {
+	position: absolute;
+	width: 225px;
+	height: 180px;
+	background: url(../images/bg.jpg) no-repeat;
+
+	transform:rotateY(180deg);
+	transition:all .8s ease-in-out;
+}
+
+#content a:hover .back {
+	transform:rotateY(0deg);
+}
+
+#content .back h3 {
+	color: #fff;
+	line-height: 16px;
+	border-bottom: 1px dashed #fff;
+	padding: 15px 0;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+#content .back p {
+	color: #fff;
+	font-size: 12px;
+	line-height: 18px;
+	text-indent: 2em;
+	padding: 0 10px;
+}
